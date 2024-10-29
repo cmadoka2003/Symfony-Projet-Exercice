@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: rgb(58, 57, 57);
+}
+
+.navbar {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#navbar-menu {
+    display: flex;
+    padding-right: 10px;
+    gap: 10px;
+    color: white;
+}
+#navbar-menu-button {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.part1, .part2 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    border-radius: 100px;
+}
+
+.img-conteneur {
+    display: flex;
+    justify-content: center;
+}
+
+.part1 img {
+    width: 500px;
+    height: 500px;
+    border-radius: 100px;
+}
+
+form, h1, p{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.part2 {
+    background-color: black;
+}
+
+form {
+    flex-direction: column;
+}
+
+form label {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+form input {
+    color: black;
+    width: 500px;
+    height: 35px;
+}
+
+textarea {
+    color: black;
+}
+
+.message {
+    width: 500px;
+    min-height: 250px;
+    max-height: 250px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.error li{
+    color: red;
+    list-style: none;
+}
+
+@media(max-width: 1250px) {
+    main {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .part1, .part2 {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+    }
+
+    .part1{
+        margin-bottom: 10px;
+    }
+
+    form input, .message {
+        width: 400px;
+    }
+}
+
+
+@media(max-width: 750px) {
+    #navbar-menu-button {
+        display: flex;
+    }
+    #navbar-menu {
+        flex-direction: column;
+        position: absolute;
+        left: -100%;
+        top: 45px;
+        background-color: black;
+        min-width: 50vw;
+        min-height: 50vh;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block Titre %}
+    <title>Home</title>
+{% endblock %}
+
+{% block ContenuPage %}
+    <main>
+        <div class="part1">
+            <div class="img-conteneur">
+                <img src={{ asset('img/bachira.PNG') }} alt="logo">
+            </div>
+            <h1>MADOKA Christopher</h1>
+            <p>Developper Web et Web Mobile</p>
+            <p>mail : cmadoka2003@gmail.com</p>
+        </div>
+
+        <div class="part2">
+            <h1>Contactez-moi</h1>
+            <p>laissez-moi un message, je vous répondrai très rapidement</p>
+            {{ form_start(formulaire) }}
+
+                {{ form_label(formulaire.email) }}
+                {{ form_widget(formulaire.email, {attr:{class:"email"}}) }}
+                <div class="error">
+                    {{ form_errors(formulaire.email) }}
+                </div>
+
+                {{ form_label(formulaire.message) }}
+                {{ form_widget(formulaire.message, {attr:{class:"message"}}) }}
+                <div class="error">
+                    {{ form_errors(formulaire.message) }}
+                </div>
+
+            {{ form_end(formulaire) }}
+        </div>
+    </main>
+    
+{% endblock %}
