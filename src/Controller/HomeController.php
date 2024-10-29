@@ -23,7 +23,7 @@ class HomeController extends AbstractController
         if($formulaire->isSubmitted() && $formulaire->isValid())
         {
             $repo->sauvegarder($message, true);
-            return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire]);
+            return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "message" => 'Message Envoyée']);
         }
 
         return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire]);

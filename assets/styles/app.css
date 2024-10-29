@@ -105,6 +105,10 @@ button {
     list-style: none;
 }
 
+.valid {
+    color: green;
+}
+
 @media(max-width: 1250px) {
     main {
         flex-direction: column;
