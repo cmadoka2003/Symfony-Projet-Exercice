@@ -1,23 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Accueil
+    Inscription
 {% endblock %}
 
 {% block ContenuPage %}
-    <main>
-        <div class="info">
-            <div class="img-conteneur">
-                <img src={{ asset('img/bachira.PNG') }} alt="logo">
-            </div>
-            <h1>MADOKA Christopher</h1>
-            <p>Developper Web et Web Mobile</p>
-            <p>mail : cmadoka2003@gmail.com</p>
-        </div>
-
+    <main id="inscription-main">
         <div class="formulaire">
-            <h1>Contactez-moi</h1>
-            <p>laissez-moi un message, je vous répondrai très rapidement</p>
+            <h1>Inscription</h1>
             {% if message is defined %}
                 <p>{{message}}</p>
             {% endif %}
@@ -29,10 +19,16 @@
                     {{ form_errors(formulaire.email) }}
                 </div>
 
-                {{ form_label(formulaire.message) }}
-                {{ form_widget(formulaire.message, {attr:{class:"message"}}) }}
+                {{ form_label(formulaire.username) }}
+                {{ form_widget(formulaire.username, {attr:{class:"email"}}) }}
                 <div class="error">
-                    {{ form_errors(formulaire.message) }}
+                    {{ form_errors(formulaire.username) }}
+                </div>
+
+                {{ form_label(formulaire.password) }}
+                {{ form_widget(formulaire.password, {attr:{class:"email"}}) }}
+                <div class="error">
+                    {{ form_errors(formulaire.password) }}
                 </div>
 
             {{ form_end(formulaire) }}

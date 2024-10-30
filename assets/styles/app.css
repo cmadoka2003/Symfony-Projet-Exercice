@@ -31,7 +31,7 @@ main {
     margin-top: 100px;
 }
 
-.part1, .part2 {
+.info, .formulaire {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ main {
     justify-content: center;
 }
 
-.part1 img {
+.info img {
     width: 500px;
     height: 500px;
     border-radius: 100px;
@@ -61,7 +61,7 @@ h1 {
     font-size: 30px;
 }
 
-.part2 {
+.formulaire {
     background-color: black;
 }
 
@@ -98,15 +98,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .error li{
     color: red;
     list-style: none;
-}
-
-.valid {
-    color: green;
 }
 
 @media(max-width: 1250px) {
@@ -115,14 +112,18 @@ button {
         margin-top: 50px;
     }
 
-    .part1, .part2 {
+    #inscription-main {
+        margin-top: 200px;
+    }
+
+    .info, .formulaire {
         width: 100%;
         justify-content: center;
         align-items: center;
         border-radius: 0px;
     }
 
-    .part1{
+    .info{
         margin-bottom: 10px;
     }
 
@@ -141,9 +142,10 @@ button {
         position: absolute;
         left: -100%;
         top: 45px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.527);
         min-width: 50vw;
         min-height: 50vh;
         padding: 10px;
+        transition: all 0.5s ease-out;
     }
 }
