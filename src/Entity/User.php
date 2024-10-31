@@ -29,6 +29,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToMany(
+        targetEntity: "App\Entity\Article",
+        mappedBy: "user",
+        cascade: ['persist', 'cascade']
+    )]
+    private $article;
+
     private $passwordHasher;
 
     function __construct(UserPasswordHasherInterface $passwordHasher)
@@ -108,5 +115,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
+    }
+
+    public function addArticle(Article $article)
+    {
+        $article->setUser($this);
+        $this->article->add($article);
     }
 }
