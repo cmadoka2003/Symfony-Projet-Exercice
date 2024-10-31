@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactForm;
+use App\Repository\ArticleRepository;
 use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'apphome')]
-    public function message(Request $req, ContactRepository $repo)
+    public function message(Request $req, ContactRepository $repo, ArticleRepository $articleRepo)
     {
         $message = new Contact();
 
@@ -20,12 +21,22 @@ class HomeController extends AbstractController
 
         $formulaire->handleRequest($req);
 
+        $articles = $articleRepo->findAll();
+        if(!$articles){
+            $message = "aucun articles"; 
+            return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "nombresArticle" => $message]);
+        }
+
         if($formulaire->isSubmitted() && $formulaire->isValid())
         {
             $repo->sauvegarder($message, true);
-            return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "message" => 'Message Envoyée']);
+            if(!$articles){
+                $message = "aucun articles"; 
+                return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "nombresArticle" => $message]);
+            }
+            return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "message" => 'Message Envoyée', "articles" => $articles]);
         }
 
-        return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire]);
+        return $this->render('pages/home/index.html.twig', ["formulaire" => $formulaire, "articles" => $articles]);
     }
 }

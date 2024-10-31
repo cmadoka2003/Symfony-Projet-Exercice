@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Articles
+{% endblock %}
+
+{% block ContenuPage %}
+	<main id="article-main">
+		<section class="form-conteneur">
+			<div class="formulaire">
+				<h1>Création d'articles</h1>
+				{% if message is defined %}
+					<p>{{message}}</p>
+				{% endif %}
+				{{ form_start(formulaire) }}
+
+				{{ form_label(formulaire.titre) }}
+				{{ form_widget(formulaire.titre, {attr:{class:"titre"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.titre) }}
+				</div>
+
+				{{ form_label(formulaire.contenu) }}
+				{{ form_widget(formulaire.contenu, {attr:{class:"contenu"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.contenu) }}
+				</div>
+
+				{{ form_end(formulaire) }}
+			</div>
+		</section>
+
+	</main>
+
+{% endblock %}
