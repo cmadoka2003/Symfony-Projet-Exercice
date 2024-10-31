@@ -33,6 +33,20 @@
 
             {{ form_end(formulaire) }}
         </div>
+
+        <div class="formulaire">
+            <h1>Connexion</h1>
+            {% if v is defined %}
+                <p>{{v}}</p>
+            {% endif %}
+            <form action="/login" method="POST">
+                <label for="email">Email</label>
+                <input type="text" name="email">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+                <button type="submit">Connexion</button>
+            </form>
+        </div>
     </main>
     
 {% endblock %}

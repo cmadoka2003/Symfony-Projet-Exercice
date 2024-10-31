@@ -109,11 +109,15 @@ button {
 @media(max-width: 1250px) {
     main {
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 0px;
     }
 
     #inscription-main {
-        margin-top: 200px;
+        margin-top: 20px;
+    }
+
+    .formulaire {
+        margin-bottom: 10px;
     }
 
     .info, .formulaire {
