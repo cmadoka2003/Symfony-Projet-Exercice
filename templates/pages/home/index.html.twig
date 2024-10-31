@@ -1,42 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Accueil
+	Accueil
 {% endblock %}
 
 {% block ContenuPage %}
-    <main>
-        <div class="info">
-            <div class="img-conteneur">
-                <img src={{ asset('img/bachira.PNG') }} alt="logo">
+	<main>
+		<section class="contact">
+			<div class="info">
+				<div class="img-conteneur">
+					<img src={{ asset('img/bachira.PNG') }} alt="logo">
+				</div>
+				<h1>MADOKA Christopher</h1>
+				<p>Developper Web et Web Mobile</p>
+				<p>mail : cmadoka2003@gmail.com</p>
+			</div>
+
+			<div class="formulaire">
+				<h1>Contactez-moi</h1>
+				<p>laissez-moi un message, je vous répondrai très rapidement</p>
+				{% if message is defined %}
+					<p>{{message}}</p>
+				{% endif %}
+				{{ form_start(formulaire) }}
+
+				{{ form_label(formulaire.email) }}
+				{{ form_widget(formulaire.email, {attr:{class:"email"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.email) }}
+				</div>
+
+				{{ form_label(formulaire.message) }}
+				{{ form_widget(formulaire.message, {attr:{class:"message"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.message) }}
+				</div>
+
+				{{ form_end(formulaire) }}
+			</div>
+		</section>
+        <h1 class="title">ARTICLES</h1>
+        <section class="articles">
+            {% for article in articles %}
+            <div class="article">
+                <h2>Titre: {{article.getTitre()}}</h2>
+                <p>{{article.getContenu()}}</p>
+                <p>sorti le {{article.getDate()}}</p>
+                <p>fait par {{article.getUser().getEmail()}}</p>
             </div>
-            <h1>MADOKA Christopher</h1>
-            <p>Developper Web et Web Mobile</p>
-            <p>mail : cmadoka2003@gmail.com</p>
-        </div>
+            {% endfor %}
+        </section>
 
-        <div class="formulaire">
-            <h1>Contactez-moi</h1>
-            <p>laissez-moi un message, je vous répondrai très rapidement</p>
-            {% if message is defined %}
-                <p>{{message}}</p>
-            {% endif %}
-            {{ form_start(formulaire) }}
+	</main>
 
-                {{ form_label(formulaire.email) }}
-                {{ form_widget(formulaire.email, {attr:{class:"email"}}) }}
-                <div class="error">
-                    {{ form_errors(formulaire.email) }}
-                </div>
-
-                {{ form_label(formulaire.message) }}
-                {{ form_widget(formulaire.message, {attr:{class:"message"}}) }}
-                <div class="error">
-                    {{ form_errors(formulaire.message) }}
-                </div>
-
-            {{ form_end(formulaire) }}
-        </div>
-    </main>
-    
 {% endblock %}

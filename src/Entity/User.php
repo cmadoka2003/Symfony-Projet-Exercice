@@ -32,7 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(
         targetEntity: "App\Entity\Article",
         mappedBy: "user",
-        cascade: ['persist', 'cascade']
+        cascade:['persist', 'remove']
     )]
     private $article;
 

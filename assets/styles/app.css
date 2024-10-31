@@ -26,12 +26,24 @@ body {
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin-top: 100px;
 }
 
-.info, .formulaire {
+.contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inscription-conteneur {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.info {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -51,10 +63,16 @@ main {
     border-radius: 100px;
 }
 
-form, h1, p{
+form, h1{
     display: flex;
     justify-content: center;
     align-items: center;    
+}
+
+.contact p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -63,6 +81,17 @@ h1 {
 
 .formulaire {
     background-color: black;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    border-radius: 100px;
+}
+
+.form-conteneur {
+    display: flex;
+    justify-content: center;
 }
 
 form {
@@ -82,9 +111,6 @@ form input {
 
 textarea {
     color: black;
-}
-
-.message {
     width: 500px;
     min-height: 250px;
     max-height: 250px;
@@ -106,14 +132,56 @@ button {
     list-style: none;
 }
 
+.title {
+    color: white;
+    background-color: rgb(43, 43, 43);
+    margin-top: 175px;
+    margin-bottom: 25px;
+}
+
+.articles {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.article {
+    margin: 10px;
+    padding: 15px;
+    background-color: black;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.article h2 {
+    color: white;
+    font-size: 30px;
+}
+
+.article p {
+    color: white;
+}
+
 @media(max-width: 1250px) {
     main {
-        flex-direction: column;
         margin-top: 0px;
+    }
+
+    .contact, .inscription-conteneur {
+        flex-direction: column;
     }
 
     #inscription-main {
         margin-top: 20px;
+    }
+
+    .title {
+        margin-top: 0px;
     }
 
     .formulaire {
@@ -133,6 +201,14 @@ button {
 
     form input, .message {
         width: 400px;
+    }
+
+    .articles {
+        flex-direction: column;
+    }
+
+    .article {
+        width: 100%;
     }
 }
 

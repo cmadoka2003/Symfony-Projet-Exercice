@@ -1,52 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Inscription
+	Inscription
 {% endblock %}
 
 {% block ContenuPage %}
-    <main id="inscription-main">
-        <div class="formulaire">
-            <h1>Inscription</h1>
-            {% if message is defined %}
-                <p>{{message}}</p>
-            {% endif %}
-            {{ form_start(formulaire) }}
+	<main id="inscription-main">
+		<section class="inscription-conteneur">
+			<div class="formulaire">
+				<h1>Inscription</h1>
+				{% if message is defined %}
+					<p>{{message}}</p>
+				{% endif %}
+				{{ form_start(formulaire) }}
 
-                {{ form_label(formulaire.email) }}
-                {{ form_widget(formulaire.email, {attr:{class:"email"}}) }}
-                <div class="error">
-                    {{ form_errors(formulaire.email) }}
-                </div>
+				{{ form_label(formulaire.email) }}
+				{{ form_widget(formulaire.email, {attr:{class:"email"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.email) }}
+				</div>
 
-                {{ form_label(formulaire.username) }}
-                {{ form_widget(formulaire.username, {attr:{class:"email"}}) }}
-                <div class="error">
-                    {{ form_errors(formulaire.username) }}
-                </div>
+				{{ form_label(formulaire.username) }}
+				{{ form_widget(formulaire.username, {attr:{class:"email"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.username) }}
+				</div>
 
-                {{ form_label(formulaire.password) }}
-                {{ form_widget(formulaire.password, {attr:{class:"email"}}) }}
-                <div class="error">
-                    {{ form_errors(formulaire.password) }}
-                </div>
+				{{ form_label(formulaire.password) }}
+				{{ form_widget(formulaire.password, {attr:{class:"email"}}) }}
+				<div class="error">
+					{{ form_errors(formulaire.password) }}
+				</div>
 
-            {{ form_end(formulaire) }}
-        </div>
+				{{ form_end(formulaire) }}
+			</div>
 
-        <div class="formulaire">
-            <h1>Connexion</h1>
-            {% if v is defined %}
-                <p>{{v}}</p>
-            {% endif %}
-            <form action="/login" method="POST">
-                <label for="email">Email</label>
-                <input type="text" name="email">
-                <label for="password">Password</label>
-                <input type="password" name="password">
-                <button type="submit">Connexion</button>
-            </form>
-        </div>
-    </main>
-    
+			<div class="formulaire">
+				<h1>Connexion</h1>
+				{% if v is defined %}
+					<p>{{v}}</p>
+				{% endif %}
+				<form action="/login" method="POST">
+					<label for="email">Email</label>
+					<input type="text" name="email">
+					<label for="password">Password</label>
+					<input type="password" name="password">
+					<button type="submit">Connexion</button>
+				</form>
+			</div>
+		</section>
+
+	</main>
+
 {% endblock %}
